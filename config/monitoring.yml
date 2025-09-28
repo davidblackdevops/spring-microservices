@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: monitoring
+  config:
+    import: optional:configserver:http://config-server:8888/
 management:
   endpoints:
     web:

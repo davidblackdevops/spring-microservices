@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: book-service
+  config:
+    import: optional:configserver:http://config-server:8888/
   datasource:
     url: jdbc:postgresql://localhost:5432/bookdb
     username: postgres
