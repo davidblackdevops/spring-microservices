@@ -1,0 +1,59 @@
+version: '3.8'
+services:
+  config-server:
+    build: ./config-server
+    ports:
+      - "8888:8888"
+    networks:
+      - spring-net
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - config-server
+    networks:
+      - spring-net
+  book-service:
+    build: ./book-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - config-server
+    networks:
+      - spring-net
+  monitoring:
+    build: ./monitoring
+    ports:
+      - "9000:9000"
+    depends_on:
+      - config-server
+    networks:
+      - spring-net
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "9001:9001"
+    depends_on:
+      - config-server
+    networks:
+      - spring-net
+  order-service:
+    build: ./order-service
+    ports:
+      - "9002:9002"
+    depends_on:
+      - config-server
+    networks:
+      - spring-net
+  user-service:
+    build: ./user-service
+    ports:
+      - "9003:9003"
+    depends_on:
+      - config-server
+    networks:
+      - spring-net
+networks:
+  spring-net:
+    driver: bridge

@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build all services",
+			"type": "shell",
+			"command": "mvn clean install -DskipTests",
+			"args": [
+				"clean",
+				"install",
+				"-DskipTests"
+			],
+			"problemMatcher": [
+				"$javac"
+			],
+			"group": "build"
+		}
+	]
+}

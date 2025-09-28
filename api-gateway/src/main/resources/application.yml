@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: book-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/books/**
+        - id: user-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/users/**
+        - id: order-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/orders/**
+        - id: notification-service
+          uri: http://localhost:8084
+          predicates:
+            - Path=/notifications/**
+      default-filters:
+        - AddResponseHeader=X-Gateway, Bookstore
+server:
+  port: 8080
