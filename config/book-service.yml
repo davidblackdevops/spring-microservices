@@ -1,0 +1,14 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: book-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bookdb
+    username: postgres
+    password: password
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

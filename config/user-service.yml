@@ -1,0 +1,13 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: user-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/userdb
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

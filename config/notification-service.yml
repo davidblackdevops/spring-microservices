@@ -1,0 +1,15 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: notification-service
+  mail:
+    host: smtp.example.com
+    port: 587
+    username: user
+    password: pass
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
